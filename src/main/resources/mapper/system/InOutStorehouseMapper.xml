@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cc.hep.system.dao.InOutStorehouseMapper">
+    <resultMap id="InOutStorehouseMapper" type="cc.hep.system.domain.InOutStorehouse">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <result column="in_out_storehouse_id" jdbcType="DECIMAL" property="inOutStorehouseId" />
+        <result column="resources_id" jdbcType="DECIMAL" property="resourcesId" />
+        <result column="type" jdbcType="VARCHAR" property="type" />
+        <result column="num" jdbcType="DOUBLE" property="num" />
+        <result column="time" jdbcType="TIMESTAMP" property="time" />
+        <result column="REMARKS" jdbcType="VARCHAR" property="REMARKS" />
+    </resultMap>
+
+    <select id="findAllInStorehouse" resultType="inOutStorehouse" parameterType="inOutStorehouse">
+    select i.in_out_storehouse_id,i.resources_id ,r.resources_name,i.type ,i.num,i.time,i.REMARKS
+    from t_in_out_storehouse i
+    left join t_resources r on(r.resources_id = i.resources_id)
+    where i.type='1'
+    order by i.in_out_storehouse_id
+</select>
+
+    <select id="findAllOutStorehouse" resultType="inOutStorehouse" parameterType="inOutStorehouse">
+        select i.in_out_storehouse_id,i.resources_id ,r.resources_name,i.type ,i.num,i.time,i.REMARKS
+        from t_in_out_storehouse i
+        left join t_resources r on(r.resources_id = i.resources_id)
+        where i.type='0'
+        order by i.in_out_storehouse_id
+    </select>
+
+    <select id="findAllInOutStorehouse" resultType="inOutStorehouse" parameterType="inOutStorehouse">
+        select i.in_out_storehouse_id,i.resources_id ,r.resources_name,i.type ,i.num,i.time,i.REMARKS
+        from t_in_out_storehouse i
+        left join t_resources r on(r.resources_id = i.resources_id)
+        where 1=1
+        order by i.in_out_storehouse_id
+    </select>
+
+
+</mapper>

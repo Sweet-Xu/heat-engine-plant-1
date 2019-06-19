@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cc.hep.system.dao.EquipmentMapper">
+  <resultMap id="equipmentMap" type="cc.hep.system.domain.Equipment">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="EQUIPMENT_ID" jdbcType="DECIMAL" property="equipmentId" />
+    <result column="EQUIPMENT_NAME" jdbcType="VARCHAR" property="equipmentName" />
+    <result column="MODEL" jdbcType="VARCHAR" property="model" />
+    <result column="SUPPLIER" jdbcType="VARCHAR" property="supplier" />
+    <result column="DESCRIBE0" jdbcType="VARCHAR" property="describe" />
+    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
+      <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+      <result column="STATUS" jdbcType="CHAR" property="status" />
+  </resultMap>
+
+  <select id="findAllEquipments" resultType="equipment" parameterType="equipment">
+    select e.equipment_id,e.equipment_name ,e.model ,e.supplier,e.describe0 'describe',u.USER_ID,u.username,
+    e.remarks,e.status from t_equipment e
+    left join t_user u on(u.USER_ID = e.USER_ID)
+    where 1=1
+    <if test="equipmentName != null and equipmentName != ''">
+      AND e.EQUIPMENT_NAME = #{equipmentName}
+    </if>
+    <if test="userId != null and userId != ''">
+      AND e.USER_ID = #{userId}
+    </if>
+    <if test="model != null and model != ''">
+      AND e.MODEL = #{model}
+    </if>
+    <if test="supplier != null and supplier != ''">
+      AND e.SUPPLIER = #{supplier}
+    </if>
+    <if test="status != null and status != ''">
+      AND e.STATUS = #{status}
+    </if>
+    order by e.EQUIPMENT_ID
+  </select>
+
+</mapper>

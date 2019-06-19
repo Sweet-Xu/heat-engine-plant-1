@@ -1,0 +1,56 @@
+<div class="modal fade" id="resources-in" data-keyboard="false" data-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title pull-left" id="resources-in-modal-title">入库</h3>
+            </div>
+            <div class="modal-body">
+                <form id="resources-in-form">
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 物资名：
+					             </span>
+                                <div class="form-group">
+                                    <select multiple="multiple" name="resourcesSelect"></select>
+                                    <input name="resourcesId" hidden/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 数量：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="num" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 备注：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="remarks" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-save" id="resources-in-button" name="in">保存</button>
+                <button type="button" class="btn btn-secondary btn-close">关闭</button>
+                <button class="btn-hide"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-src="@{js/app/system/resources/resourcesIn.js}"></script>

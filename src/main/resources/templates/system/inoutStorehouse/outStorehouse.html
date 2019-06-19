@@ -1,0 +1,63 @@
+<div data-th-include="system/resources/resourcesAdd"></div>
+<div data-th-include="system/resources/resourcesIn"></div>
+<div class="card">
+    <div class="card-block">
+        <div class="table-responsive">
+            <div id="data-table_wrapper" class="dataTables_wrapper">
+                <div class="dataTables_buttons hidden-sm-down actions">
+                    <span class="actions__item zmdi zmdi-search" onclick="search()" title="搜索" />
+                    <span class="actions__item zmdi zmdi-refresh-alt" onclick="refresh()" title="刷新" />
+                    <div class="dropdown actions__item">
+                        <i data-toggle="dropdown" class="zmdi zmdi-download"></i>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <a href="javascript:void(0)" class="dropdown-item" data-table-action="excel"  onclick="exportDeptExcel()">
+                                Excel (.xlsx)
+                            </a>
+                            <a href="javascript:void(0)" class="dropdown-item" data-table-action="csv"  onclick="exportDeptCsv()">
+                                CSV (.csv)
+                            </a>
+                        </ul>
+                    </div>
+                    <div class="dropdown actions__item" shiro:hasAnyPermissions="resources:in,resources:out">
+                        <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="outResources()" shiro:hasPermission="resources:out">出库</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="data-table_filter" class="dataTables_filter">
+                    <form class="resources-table-form">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+					               	物资编号：
+					            </span>
+                                    <div class="form-group">
+                                        <input type="text" name="resourcesNo" class="form-control">
+                                        <i class="form-group__bar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+					               	物资名称：
+					            </span>
+                                    <div class="form-group">
+                                        <input type="text" name="resourcesName" class="form-control">
+                                        <i class="form-group__bar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <table id="resourcesTable" data-mobile-responsive="true" class="mb-bootstrap-table text-nowrap"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-src="@{js/app/system/inoutStorehouse/outResources.js}"></script>
+<script data-th-src="@{js/app/system/resources/resourcesEdit.js}"></script>
+<script data-th-src="@{js/app/system/resources/resourcesOut.js}"></script>

@@ -1,0 +1,137 @@
+<!--<style>
+    tr{border-top:1px solid #eee;font-size:1rem}tr:last-child{border-bottom:1px solid #eee}tr:hover{background:#fafafa!important}
+</style>
+<div class="card">
+    <div class="card-header">
+        <h2 class="card-title"></h2>
+    </div>
+    <div class="card-block">
+        <div id="statistics" style="height:300px"></div>
+    </div>
+</div>
+<script data-th-src="@{js/app/system/generator/statistics.js}"></script>
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"><link rel="icon" href="https://jscdn.com.cn/highcharts/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* css 代码  */
+    </style>
+    <script src="https://code.highcharts.com.cn/highcharts/highcharts.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts/modules/oldie.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+</head>
+<body>
+<div id="container1" style="max-width:1600px;height:400px"></div>
+<div id="container2" style="min-width:400px;height:400px"></div>
+<script>
+    // JS 代码
+    var chart = Highcharts.chart('container1', {
+        title: {
+            text: '发电量统计'
+        },
+        yAxis: {
+            title: {
+                text: '发电量'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+                pointStart: 2010
+            }
+        },
+        series: [{
+            name: '总发电量',
+            data: [49568, 47734, 61840, 73039, 76776, 88927, 122942, 132159]
+        }, {
+            name: '发电机1',
+            data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
+        }, {
+            name: '发电机2',
+            data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
+        }, {
+            name: '发电机3',
+            data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
+        }, {
+            name: '发电机4',
+            data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
+        }],
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+
+    Highcharts.chart('container2', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: '总发电量占比'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: '发电占比',
+            colorByPoint: true,
+            data: [{
+                name: '发电机1',
+                y: 0.38270404373760497,
+                sliced: true,
+                selected: true
+            }, {
+                name: '发电机2',
+                y: 0.2777062260235687
+            }, {
+                name: '发电机1',
+                y: 0.1934929592563382
+            }, {
+                name: '发电机4',
+                y: 0.1460967709824881
+            }]
+        }]
+    });
+
+</script>
+</body>
+</html>

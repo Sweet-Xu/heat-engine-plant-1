@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cc.hep.system.dao.StorehouseMapper">
+    <resultMap id="storehouseMapper" type="cc.hep.system.domain.Storehouse">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <result column="storehouse_id" jdbcType="DECIMAL" property="storehouseId" />
+        <result column="storehouse_name" jdbcType="VARCHAR" property="storehouseName" />
+        <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
+        <result column="address" jdbcType="VARCHAR" property="address" />
+        <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+        <result column="STATUS" jdbcType="CHAR" property="status" />
+    </resultMap>
+
+    <select id="findAllStorehouse" resultType="storehouse" parameterType="storehouse">
+        select s.storehouse_id,s.storehouse_name ,u.USER_ID,u.username,s.address,
+        s.remarks,s.status from t_storehouse s
+        left join t_user u on(u.USER_ID = s.USER_ID)
+        where 1=1
+        <if test="storehouseName != null and storehouseName != ''">
+            AND s.storehouse_name = #{storehouseName}
+        </if>
+        <if test="userId != null and userId != ''">
+            AND s.USER_ID = #{userId}
+        </if>
+        <if test="address != null and address != ''">
+            AND s.address = #{address}
+        </if>
+        <if test="status != null and status != ''">
+            AND s.STATUS = #{status}
+        </if>
+        order by s.storehouse_id
+    </select>
+
+</mapper>

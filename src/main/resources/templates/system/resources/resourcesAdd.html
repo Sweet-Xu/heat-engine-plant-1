@@ -1,0 +1,106 @@
+<div class="modal fade" id="resources-add" data-keyboard="false" data-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title pull-left" id="resources-add-modal-title">新增物资</h3>
+            </div>
+            <div class="modal-body">
+                <form id="resources-add-form">
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 物资编号：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="resourcesNo" class="form-control">
+                                    <input type="text" hidden name="oldResourcesNo" class="form-control">
+                                    <input type="text" hidden name="resourcesId" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 物资名：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="resourcesName" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 种类：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="type" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 单价：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="price" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 剩余重量：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="weight" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 所在仓库：
+					             </span>
+                                <div class="form-group">
+                                    <select multiple="multiple" name="storehouseSelect"></select>
+                                    <input name="storehouseId" hidden/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 备注：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="remarks" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-save" id="resources-add-button" name="save">保存</button>
+                <button type="button" class="btn btn-secondary btn-close">关闭</button>
+                <button class="btn-hide"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-src="@{js/app/system/resources/resourcesAdd.js}"></script>

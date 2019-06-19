@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cc.hep.system.dao.ResourcesMapper">
+    <resultMap id="resourcesMapper" type="cc.hep.system.domain.Resources">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <result column="resources_id" jdbcType="DECIMAL" property="resourcesId" />
+        <result column="resources_no" jdbcType="VARCHAR" property="resourcesNo" />
+        <result column="resources_name" jdbcType="VARCHAR" property="resourcesName" />
+        <result column="type" jdbcType="VARCHAR" property="type" />
+        <result column="price" jdbcType="DECIMAL" property="price" />
+        <result column="weight" jdbcType="DOUBLE" property="weight" />
+        <result column="storehouse_id" jdbcType="DECIMAL" property="storehouseId" />
+        <result column="REMARKS" jdbcType="VARCHAR" property="REMARKS" />
+    </resultMap>
+
+    <select id="findAllResources" resultType="resources" parameterType="resources">
+        select r.resources_id,r.resources_no ,r.resources_name ,r.type,r.price,r.weight,r.storehouse_id,
+        s.storehouse_name,s.address,r.remarks from t_resources r
+        left join t_storehouse s on(s.storehouse_id = r.storehouse_id)
+        where 1=1
+        <if test="resourcesNo != null and resourcesNo != ''">
+            AND r.resources_no = #{resourcesNo}
+        </if>
+        <if test="resourcesName != null and resourcesName != ''">
+            AND r.resources_name = #{resourcesName}
+        </if>
+        <if test="type != null and type != ''">
+            AND r.type = #{type}
+        </if>
+        <if test="storehouseId != null and storehouseId != ''">
+            AND r.storehouse_id = #{storehouseId}
+        </if>
+        <if test="storehouseName != null and storehouseName != ''">
+            AND r.storehouse_name = #{storehouseName}
+        </if>
+        order by r.resources_id
+    </select>
+
+    <!-- 入库 -->
+    <update id="inResources">
+        update t_resources
+            set weight = weight + #{num}
+            where resources_id = #{resourcesId}
+    </update>
+
+    <!-- 出库 -->
+    <update id="outResources">
+        update t_resources
+            set weight = weight - #{num}
+            where resources_id = #{resourcesId}
+    </update>
+
+</mapper>

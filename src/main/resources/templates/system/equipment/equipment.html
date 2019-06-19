@@ -1,0 +1,62 @@
+<div data-th-include="system/equipment/equipmentAdd"></div>
+<div class="card">
+    <div class="card-block">
+        <div class="table-responsive">
+            <div id="data-table_wrapper" class="dataTables_wrapper">
+                <div class="dataTables_buttons hidden-sm-down actions">
+                    <span class="actions__item zmdi zmdi-search" onclick="search()" title="搜索" />
+                    <span class="actions__item zmdi zmdi-refresh-alt" onclick="refresh()" title="刷新" />
+                    <div class="dropdown actions__item">
+                        <i data-toggle="dropdown" class="zmdi zmdi-download"></i>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <a href="javascript:void(0)" class="dropdown-item" data-table-action="excel"  onclick="exportDeptExcel()">
+                                Excel (.xlsx)
+                            </a>
+                            <a href="javascript:void(0)" class="dropdown-item" data-table-action="csv"  onclick="exportDeptCsv()">
+                                CSV (.csv)
+                            </a>
+                        </ul>
+                    </div>
+                    <div class="dropdown actions__item" shiro:hasAnyPermissions="equipment:add,equipment:delete,equipment:update">
+                        <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="javascript:void(0)" class="dropdown-item" data-toggle="modal" data-target="#equipment-add" shiro:hasPermission="equipment:add">新增设备</a>
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="updateEquipment()" shiro:hasPermission="equipment:update">修改设备</a>
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="deleteEquipments();" shiro:hasPermission="equipment:delete">删除设备</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="data-table_filter" class="dataTables_filter">
+                    <form class="equipment-table-form">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon"> 设备名称： </span>
+                                    <div class="form-group">
+                                        <input type="text" name="equipmentName" class="form-control"> <i class="form-group__bar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon"> 状态： </span>
+                                    <div class="form-group">
+                                        <select class="form-control" name="status">
+                                            <option value="" selected>所有</option>
+                                            <option value="1">使用</option>
+                                            <option value="0">维修</option>
+                                            <option value="2">报废</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <table id="equipmentTable" data-mobile-responsive="true" class="mb-bootstrap-table text-nowrap"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-src="@{js/app/system/equipment/equipment.js}"></script>
+<script data-th-src="@{js/app/system/equipment/equipmentEdit.js}"></script>

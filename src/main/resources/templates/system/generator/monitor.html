@@ -1,0 +1,144 @@
+<style>
+    tr{border-top:1px solid #eee;font-size:1rem}tr:last-child{border-bottom:1px solid #eee}tr:hover{background:#fafafa!important}
+</style>
+<div class="row">
+    <div class="col-sm-11">
+        <div class="input-group" style="margin-top:10px;">
+            <span class="input-group-addon">
+                状态：
+            </span>
+            <div class="toggle-switch">
+                <input type="checkbox" id="status1" checked class="toggle-switch__checkbox">
+                <i class="toggle-switch__helper"></i>
+            </div>
+            <span class="input-group-addon" style="margin-left: 10px;">
+                开机
+            </span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="input-group-addon">
+                温度：
+            </span>
+            <div class="form-group">
+                <input type="text" id="temperature1" class="form-control" readonly="readonly" value="40°c">
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="input-group-addon" style="color: #ff1212;" id="warning1">
+                过热警告！
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+    </div>
+    <div class="card-block">
+        <div id="generator1" style="height:300px"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-11">
+        <div class="input-group" style="margin-top:10px;">
+            <span class="input-group-addon">
+                状态：
+            </span>
+            <div class="toggle-switch">
+                <input type="checkbox" id="status2" checked class="toggle-switch__checkbox">
+                <i class="toggle-switch__helper"></i>
+            </div>
+            <span class="input-group-addon"  style="margin-left: 10px;">
+                开机
+            </span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="input-group-addon">
+                温度：
+            </span>
+            <div class="form-group">
+                <input type="text" id="temperature2" class="form-control" readonly="readonly" value="40°c">
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="input-group-addon" style="color: #ff1212;" id="warning2">
+                过热警告！
+            </span>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h2 class="card-title"></h2>
+    </div>
+    <div class="card-block">
+        <div id="generator2" style="height:300px"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-11">
+        <div class="input-group" style="margin-top:10px;">
+            <span class="input-group-addon">
+                状态：
+            </span>
+            <div class="toggle-switch">
+                <input type="checkbox" id="status3" checked class="toggle-switch__checkbox">
+                <i class="toggle-switch__helper"></i>
+            </div>
+            <span class="input-group-addon"  style="margin-left: 10px;">
+                开机
+            </span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="input-group-addon">
+                温度：
+            </span>
+            <div class="form-group">
+                <input type="text" id="temperature3" class="form-control" readonly="readonly" value="40°c">
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="input-group-addon" style="color: #ff1212;" id="warning3">
+                过热警告！
+            </span>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h2 class="card-title"></h2>
+    </div>
+    <div class="card-block">
+        <div id="generator3" style="height:300px"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-11">
+        <div class="input-group" style="margin-top:10px;">
+            <span class="input-group-addon">
+                状态：
+            </span>
+            <div class="toggle-switch">
+                <input type="checkbox" id="status4" checked class="toggle-switch__checkbox">
+                <i class="toggle-switch__helper"></i>
+            </div>
+            <span class="input-group-addon"  style="margin-left: 10px;">
+                开机
+            </span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="input-group-addon">
+                温度：
+            </span>
+            <div class="form-group">
+                <input type="text" id="temperature4" class="form-control" readonly="readonly" value="40°c">
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="input-group-addon" style="color: #ff1212;" id="warning4">
+                过热警告！
+            </span>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h2 class="card-title"></h2>
+    </div>
+    <div class="card-block">
+        <div id="generator4" style="height:300px"></div>
+    </div>
+</div>
+<script data-th-src="@{js/app/system/generator/info.js}"></script>
